@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+// --- ASSET IMPORTS ---
 import logo from "./assets/logo.png"; 
+
+// --- SECTION IMAGES (Ensure these files exist in your assets folder) ---
+import visitorImg from "./assets/Visitor Management.png"; 
+import communityImg from "./assets/Community Management.png";
+import utilityImg from "./assets/Smart Utility Vending.png";
+import paymentImg from "./assets/Simplified Payments.png";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ChevronDown, Globe, Menu, X, PlayCircle, 
   Users, Building2, ShieldCheck, Store, Zap,
-  MapPin, Home, ArrowRight, Sparkles // Added Sparkles
+  MapPin, Home, ArrowRight, Sparkles, 
+  QrCode, CreditCard // Specific icons
 } from "lucide-react";
 
 function App() {
@@ -27,7 +36,7 @@ function App() {
     "Gated Community"
   ];
 
-  // Images
+  // Hero & Solution Images
   const heroImage = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2426&q=80";
   const solutionImage = "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80";
 
@@ -44,9 +53,9 @@ function App() {
 
   // Data for the Stats Section
   const statsData = [
-    { icon: <MapPin size={32} />, number: "14 Cities", label: "Across Africa" },
-    { icon: <Home size={32} />, number: "40,000", label: "Property Units" },
-    { icon: <Users size={32} />, number: "48,000", label: "Residents" },
+    { icon: <MapPin size={32} />, number: "4 States", label: "Across Nigeria" },
+    { icon: <Home size={32} />, number: "1,000+", label: "Property Units" },
+    { icon: <Users size={32} />, number: "5,000+", label: "Residents" },
   ];
 
   // Animation variants
@@ -58,6 +67,16 @@ function App() {
   const statItemVariant = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
+  const featureImageVariant = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.7, delay: 0.2 } }
+  };
+
+  const featureTextVariant = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.7 } }
   };
 
   return (
@@ -283,7 +302,7 @@ function App() {
         </div>
       </section>
 
-      {/* --- NEW: Features Intro Section --- */}
+      {/* --- Features Intro Section --- */}
       <section className="features-intro">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
@@ -301,6 +320,146 @@ function App() {
             Simplifying operations and enhancing access to communal services 
             for owners and occupants.
           </p>
+        </motion.div>
+      </section>
+
+      {/* -------------------------------------------------- */}
+      {/* --- SECTION 1: VISITOR MANAGEMENT (Image Left) --- */}
+      {/* -------------------------------------------------- */}
+      <section id="visitor" className="feature-section layout-image-left">
+        <motion.div
+            className="feature-image-col"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={featureImageVariant}
+        >
+            {/* Using brand blue circle */}
+            <div className="feature-icon-circle-large"><QrCode size={40} /></div>
+            <img src={visitorImg} alt="Visitor Management" className="feature-img" />
+        </motion.div>
+        
+        <motion.div
+            className="feature-text-col"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={featureTextVariant}
+        >
+            <div className="feature-number">01.</div>
+            <h3>Visitor Management</h3>
+            <p>
+                Solo's system uses secure codes and virtual IDs from their apps for 
+                visitor management, along with integration for popular access control devices.
+            </p>
+            <button className="btn-learn-more">
+              Learn More <ArrowRight size={16} />
+            </button>
+        </motion.div>
+      </section>
+
+      {/* -------------------------------------------------- */}
+      {/* --- SECTION 2: COMMUNITY MANAGEMENT (Text Left) --- */}
+      {/* -------------------------------------------------- */}
+      <section id="community" className="feature-section layout-text-left subtle-bg">
+        <motion.div
+            className="feature-text-col"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{ hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.7 } } }}
+        >
+            <div className="feature-number">02.</div>
+            <h3>Community Management</h3>
+            <p>
+                Integrated property database, issue reporting and management, amenities booking, 
+                financial reports as well as messaging and bulk communication tools are just 
+                a few of the tools Solo provides to Facilities Managers and Residents’ Associations.
+            </p>
+            <button className="btn-learn-more">
+              Learn More <ArrowRight size={16} />
+            </button>
+        </motion.div>
+        
+        <motion.div
+            className="feature-image-col"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={featureImageVariant}
+        >
+            <div className="feature-icon-circle-large"><Users size={40} /></div>
+            <img src={communityImg} alt="Community Management" className="feature-img" />
+        </motion.div>
+      </section>
+
+      {/* -------------------------------------------------- */}
+      {/* --- SECTION 3: SMART UTILITY VENDING (Image Left) --- */}
+      {/* -------------------------------------------------- */}
+      <section id="utility" className="feature-section layout-image-left">
+        <motion.div
+            className="feature-image-col"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={featureImageVariant}
+        >
+            <div className="feature-icon-circle-large"><Zap size={40} /></div>
+            <img src={utilityImg} alt="Smart Utility Vending" className="feature-img" />
+        </motion.div>
+        
+        <motion.div
+            className="feature-text-col"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={featureTextVariant}
+        >
+            <div className="feature-number">03.</div>
+            <h3>Smart Utility Vending</h3>
+            <p>
+                Solo simplifies community management for multi-unit properties, providing 
+                easy-to-use applications for property owners and occupants to access 
+                communal services.
+            </p>
+            <button className="btn-learn-more">
+              Learn More <ArrowRight size={16} />
+            </button>
+        </motion.div>
+      </section>
+
+      {/* -------------------------------------------------- */}
+      {/* --- SECTION 4: SIMPLIFIED PAYMENTS (Text Left) --- */}
+      {/* -------------------------------------------------- */}
+      <section id="payments" className="feature-section layout-text-left subtle-bg">
+        <motion.div
+            className="feature-text-col"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{ hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.7 } } }}
+        >
+            <div className="feature-number">04.</div>
+            <h3>Simplified Payments</h3>
+            <p>
+                Automated billing, collections and reconciliation functionality on our apps 
+                means that late or no-payment of communal dues are a thing of the past. 
+                We’ve built in revenue assurance features that reduce defaults in payments.
+            </p>
+            <button className="btn-learn-more">
+              Learn More <ArrowRight size={16} />
+            </button>
+        </motion.div>
+        
+        <motion.div
+            className="feature-image-col"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={featureImageVariant}
+        >
+            <div className="feature-icon-circle-large"><CreditCard size={40} /></div>
+            <img src={paymentImg} alt="Simplified Payments" className="feature-img" />
         </motion.div>
       </section>
 

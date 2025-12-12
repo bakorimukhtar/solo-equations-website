@@ -315,3 +315,170 @@ body {
     padding: 60px 5%;
   }
 }
+/* --- FEATURE SECTIONS (Visitor, Community, etc) --- */
+/* -------------------------------------------------- */
+
+.feature-section {
+  padding: 100px 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.feature-section.subtle-bg {
+  background: var(--bg-subtle); /* Applies to manager and payments sections */
+}
+
+/* Image Column */
+.feature-image-col {
+  position: relative;
+  order: 1; /* Default to Image Left */
+}
+
+/* Text Column */
+.feature-text-col {
+  order: 2; /* Default to Text Right */
+  text-align: left;
+}
+
+.feature-text-col h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.feature-text-col p {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px; /* Space before button */
+}
+
+.feature-number {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.feature-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  /* Optional: Keep images uniform height */
+  max-height: 450px;
+  object-fit: cover;
+}
+
+/* Large Icon Circle Overlay */
+.feature-icon-circle-large {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 80px;
+  height: 80px;
+  background: var(--brand-blue);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 5px 20px rgba(13, 110, 253, 0.4);
+}
+
+/* --- ALTERNATING LAYOUTS --- */
+
+/* Text Left, Image Right */
+.layout-text-left .feature-image-col {
+  order: 2;
+}
+
+.layout-text-left .feature-text-col {
+  order: 1;
+}
+
+/* Move the large icon to the opposite corner for Text Left layout */
+.layout-text-left .feature-icon-circle-large {
+  left: -25px;
+  right: auto;
+}
+
+/* --- LEARN MORE BUTTON --- */
+.btn-learn-more {
+  background: transparent;
+  color: var(--brand-blue);
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  padding: 0;
+  margin-top: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.btn-learn-more:hover {
+  gap: 12px; /* Moves arrow slightly to the right */
+  color: #0b5ed7;
+}
+
+
+/* --- MOBILE RESPONSIVE --- */
+
+@media (max-width: 968px) {
+  /* ... [Keep all previous mobile styles] ... */
+
+  /* FEATURE SECTIONS MOBILE */
+  .feature-section {
+    grid-template-columns: 1fr; /* Stacks everything */
+    padding: 60px 5%;
+    gap: 40px;
+  }
+
+  /* Force Text to be first, Image to be second on mobile for ALL sections */
+  .feature-image-col, 
+  .layout-text-left .feature-image-col {
+    order: 2; 
+  }
+  
+  .feature-text-col,
+  .layout-text-left .feature-text-col {
+    order: 1;
+    text-align: center; /* Center the text for better mobile aesthetics */
+  }
+
+  .feature-text-col h3 {
+    font-size: 28px;
+  }
+  
+  .btn-learn-more {
+    justify-content: center; /* Center button on mobile */
+    width: 100%;
+  }
+
+  /* Move the large icon to a centered position on top of the image */
+  .feature-icon-circle-large {
+    top: -20px;
+    right: 50%;
+    transform: translateX(50%);
+    left: auto; /* Reset left positioning */
+  }
+  
+  .layout-text-left .feature-icon-circle-large {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
