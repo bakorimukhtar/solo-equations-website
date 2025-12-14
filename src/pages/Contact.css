@@ -1,0 +1,291 @@
+/* --- CONTACT PAGE STYLES --- */
+
+.contact-page {
+    padding-top: 120px;
+    padding-bottom: 100px;
+    background: #f8faff;
+    min-height: 100vh;
+  }
+  
+  .contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+  }
+  
+  .contact-header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #021024;
+    margin-bottom: 15px;
+  }
+  
+  .contact-header p {
+    font-size: 18px;
+    color: #64748b;
+  }
+  
+  /* Container Layout */
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+  
+  /* Left Info Box */
+  .contact-info-box {
+    background: #021024;
+    color: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    height: fit-content;
+    box-shadow: 0 20px 40px rgba(2, 16, 36, 0.3);
+  }
+  
+  .contact-info-box h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .info-desc {
+    color: #94a3b8;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .icon-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(13, 110, 253, 0.2); /* Transparent Brand Blue */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0d6efd;
+  }
+  
+  /* Right Form */
+  .contact-form {
+    background: white;
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  }
+  
+  /* 2 Column Grid for Email/Phone */
+  .form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  .form-group input, 
+  .form-group select, 
+  .form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    color: #1e293b;
+  }
+  
+  .form-group input:focus, 
+  .form-group select:focus, 
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #0d6efd;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+  }
+  
+  /* Highlight the conditional input */
+  .input-highlight {
+    border-color: #0d6efd !important;
+    background-color: #f0f7ff !important;
+  }
+  
+  /* Radio Group */
+  .radio-options {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .radio-btn {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .radio-btn input {
+    width: auto; /* Reset width for radio */
+    margin: 0;
+  }
+  
+  .radio-btn.active {
+    border-color: #0d6efd;
+    background: #f0f7ff;
+    color: #0d6efd;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #0d6efd;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    background: #0b5ed7;
+    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);
+  }
+  
+  .submit-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* --- SUCCESS MODAL STYLES --- */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000; /* Above everything */
+    padding: 20px;
+  }
+  
+  .modal-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  
+  .modal-icon {
+    width: 80px;
+    height: 80px;
+    background: #dcfce7; /* Light Green */
+    color: #16a34a; /* Success Green */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+  
+  .modal-card h2 {
+    font-size: 24px;
+    color: #021024;
+    margin-bottom: 10px;
+  }
+  
+  .modal-card p {
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+  
+  .close-modal-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #94a3b8;
+    transition: color 0.2s;
+  }
+  .close-modal-btn:hover { color: #333; }
+  
+  .modal-action-btn {
+    background: #021024;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+  }
+  .modal-action-btn:hover { background: #0f172a; }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .form-grid-2 {
+      grid-template-columns: 1fr; /* Stack email/phone on mobile */
+    }
+  
+    .contact-form {
+      padding: 30px 20px;
+    }
+    
+    .radio-options {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .contact-header h1 {
+      font-size: 36px;
+    }
+  }
