@@ -8,6 +8,7 @@ import { ChevronDown, Globe, Menu, X, Facebook, Twitter, Instagram, Linkedin, Ap
 // --- IMPORT PAGES ---
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import About from "./pages/About"; // <--- 1. IMPORT ADDED
 
 // --- ASSET IMPORTS ---
 import logo from "./assets/logo.png"; 
@@ -24,7 +25,7 @@ function App() {
   // Function to close menu when a link is clicked
   const closeMenu = () => {
     setMobileMenuOpen(false);
-    setProductOpen(false); // Optional: close product dropdown too
+    setProductOpen(false);
   };
 
   // Scroll to top on route change
@@ -38,7 +39,6 @@ function App() {
       {/* --- SHARED NAVBAR --- */}
       <nav className="navbar">
         <div className="logo-area">
-          {/* Logo redirects to Home AND closes mobile menu if open */}
           <Link to="/" onClick={closeMenu}>
             <img src={logo} alt="Solo Equations" className="logo-img" />
           </Link>
@@ -46,7 +46,8 @@ function App() {
 
         {/* Desktop Nav */}
         <div className="nav-center">
-        <Link to="/" className="nav-link">Home</Link>
+          <Link to="/" className="nav-link">Home</Link>
+          
           <div style={{position: 'relative'}}>
             <button className={`nav-link ${isProductOpen ? 'active' : ''}`} onClick={toggleProducts}>
               Products <ChevronDown size={16} style={{transform: isProductOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: '0.2s'}}/>
@@ -64,7 +65,6 @@ function App() {
             </AnimatePresence>
           </div>
 
-          <Link to="/" className="nav-link">Home</Link>
           <Link to="/" className="nav-link">Blog</Link>
           <Link to="/contact" className="nav-link">Contact Us</Link>
           <Link to="/about" className="nav-link">About Us</Link>
@@ -138,7 +138,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          {/* Add Blog/About Routes when ready */}
+          <Route path="/about" element={<About />} /> {/* <--- 2. ROUTE ADDED */}
         </Routes>
       </main>
 

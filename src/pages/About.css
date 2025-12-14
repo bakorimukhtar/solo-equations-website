@@ -1,0 +1,316 @@
+/* --- ABOUT PAGE STYLES --- */
+
+.about-page {
+    padding-top: 90px; /* Navbar spacing */
+    background: #ffffff;
+    overflow-x: hidden;
+  }
+  
+  /* --- Header & Hero --- */
+  .about-header-section {
+    text-align: center;
+    padding: 80px 5% 100px;
+    background: #f8faff;
+  }
+  
+  .about-header-content h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    color: #021024;
+    margin-bottom: 20px;
+  }
+  
+  .about-header-content p {
+    font-size: 18px;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto 50px;
+  }
+  
+  .about-hero-image-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  }
+  
+  .about-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* --- Story & Vision --- */
+  .story-section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .section-pill {
+    background: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  
+  .story-text h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #021024;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  .story-text p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+  }
+  
+  .vision-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .vision-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  }
+  
+  .vision-card.dark {
+    background: #021024;
+    color: white;
+    border: none;
+  }
+  
+  .vision-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+  }
+  
+  .vision-card p {
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+  
+  /* --- Impact Section --- */
+  .impact-section {
+    background: #021024;
+    color: white;
+    padding: 100px 5%;
+    text-align: center;
+  }
+  
+  .impact-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .impact-desc {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    font-size: 18px;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+  
+  .impact-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .impact-stat-item {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .impact-icon-circle {
+    width: 60px;
+    height: 60px;
+    background: #00ff88; /* Brand Accent */
+    color: #021024;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+  
+  .impact-stat-item h3 {
+    font-size: 32px;
+    margin: 0 0 5px 0;
+    font-weight: 700;
+  }
+  
+  /* --- Team Section --- */
+  .team-section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .team-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .team-header h2 { font-size: 36px; color: #021024; margin-bottom: 10px; }
+  .team-header p { color: #64748b; font-size: 18px; }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .team-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+  }
+  
+  .team-card:hover { transform: translateY(-5px); }
+  
+  .team-img-box {
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .team-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .team-info {
+    padding: 25px;
+    text-align: center;
+  }
+  
+  .team-info h3 { margin: 0 0 5px 0; font-size: 20px; color: #021024; }
+  .team-role { color: #0d6efd; font-weight: 600; font-size: 14px; display: block; margin-bottom: 15px; }
+  .team-info p { color: #555; font-size: 14px; line-height: 1.5; margin-bottom: 20px; }
+  
+  .team-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .team-socials a {
+    color: #94a3b8;
+    transition: color 0.2s;
+  }
+  .team-socials a:hover { color: #0d6efd; }
+  
+  .team-btn-wrapper { text-align: center; }
+  .btn-outline-dark {
+    background: transparent;
+    border: 2px solid #021024;
+    color: #021024;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-outline-dark:hover { background: #021024; color: white; }
+  
+  /* --- FAQ Section --- */
+  .faq-section {
+    padding: 80px 5%;
+    background: #f8faff;
+  }
+  
+  .faq-container { max-width: 800px; margin: 0 auto; }
+  .faq-header { text-align: center; margin-bottom: 40px; }
+  .faq-header h2 { font-size: 32px; margin-bottom: 10px; color: #021024; }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .faq-item {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  
+  .faq-item.open { border-color: #0d6efd; }
+  
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .faq-question h4 { margin: 0; font-size: 16px; color: #333; }
+  
+  .faq-answer {
+    overflow: hidden;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+  
+  .faq-footer {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 16px;
+  }
+  
+  .faq-cta-link {
+    color: #0d6efd;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* --- Mobile Responsive --- */
+  @media (max-width: 768px) {
+    .story-grid { grid-template-columns: 1fr; }
+    .impact-stats-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .about-header-content h1 { font-size: 36px; }
+  }
