@@ -8,7 +8,10 @@ import { ChevronDown, Globe, Menu, X, Facebook, Twitter, Instagram, Linkedin, Ap
 // --- IMPORT PAGES ---
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import About from "./pages/About"; // <--- 1. IMPORT ADDED
+import About from "./pages/About"; 
+
+// --- IMPORT COMPONENTS ---
+import Chatbot from "./components/Chatbot"; // <--- 1. IMPORT CHATBOT
 
 // --- ASSET IMPORTS ---
 import logo from "./assets/logo.png"; 
@@ -39,6 +42,7 @@ function App() {
       {/* --- SHARED NAVBAR --- */}
       <nav className="navbar">
         <div className="logo-area">
+          {/* Logo redirects to Home AND closes mobile menu if open */}
           <Link to="/" onClick={closeMenu}>
             <img src={logo} alt="Solo Equations" className="logo-img" />
           </Link>
@@ -138,7 +142,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} /> {/* <--- 2. ROUTE ADDED */}
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
 
@@ -207,6 +211,9 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* --- FLOATING CHATBOT (Visible on ALL pages) --- */}
+      <Chatbot />  {/* <--- 2. COMPONENT ADDED */}
 
     </div>
   );
