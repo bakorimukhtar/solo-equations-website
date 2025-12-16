@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ComingSoon.css";
 import { motion } from "framer-motion";
 import { Hammer, ArrowLeft, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ComingSoon = () => {
+    // <--- 2. Add this block at the top of your component
+  useEffect(() => {
+    document.title = "Coming Soon | Solo Equations"; 
+  }, []);
   return (
     <div className="coming-soon-container">
       <motion.div 
