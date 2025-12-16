@@ -1,12 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./About.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView, animate } from "framer-motion";
 import { 
   MapPin, Home as HomeIcon, Users, 
-  ChevronDown, ChevronUp, Linkedin, Mail, Phone, ArrowRight, 
-  CheckCircle, HelpCircle 
+  ChevronDown, ChevronUp, Linkedin, Mail, Phone, ArrowRight 
 } from "lucide-react";
 import { Link } from "react-router-dom";
+
+// --- COUNTER COMPONENT ---
+// This handles the smooth counting animation
+const Counter = ({ from, to, duration = 2 }) => {
+  const nodeRef = useRef();
+  const isInView = useInView(nodeRef, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView) {
+      const node = nodeRef.current;
+      const controls = animate(from, to, {
+        duration: duration,
+        ease: "easeOut",
+        onUpdate(value) {
+          node.textContent = Math.round(value).toLocaleString(); // Adds commas (e.g., 1,000)
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [from, to, duration, isInView]);
+
+  return <span ref={nodeRef}>{from}</span>;
+};
 
 const About = () => {
   // --- STATE FOR FAQ ---
@@ -16,11 +38,26 @@ const About = () => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
-  // --- DATA: IMPACT STATS ---
+  // --- DATA: IMPACT STATS (Refactored for Animation) ---
   const statsData = [
-    { icon: <MapPin size={32} />, number: "4 States", label: "Across Nigeria" },
-    { icon: <HomeIcon size={32} />, number: "1,000+", label: "Property Units" },
-    { icon: <Users size={32} />, number: "5,000+", label: "Residents" },
+    { 
+      icon: <MapPin size={32} />, 
+      value: 4, 
+      suffix: " States", 
+      label: "Across Nigeria" 
+    },
+    { 
+      icon: <HomeIcon size={32} />, 
+      value: 1000, 
+      suffix: "+", 
+      label: "Property Units" 
+    },
+    { 
+      icon: <Users size={32} />, 
+      value: 5000, 
+      suffix: "+", 
+      label: "Residents" 
+    },
   ];
 
   // --- DATA: TEAM MEMBERS ---
@@ -113,7 +150,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* --- OUR IMPACT --- */}
+      {/* --- OUR IMPACT (UPDATED WITH ANIMATION) --- */}
       <section className="impact-section">
         <div className="impact-content">
           <h2>Our Impact</h2>
@@ -127,10 +164,15 @@ const About = () => {
               <motion.div 
                 key={index} 
                 className="impact-stat-item"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="impact-icon-circle">{stat.icon}</div>
-                <h3>{stat.number}</h3>
+                <h3>
+                  {/* The Counter Component */}
+                  <Counter from={0} to={stat.value} duration={2.5} />
+                  <span>{stat.suffix}</span>
+                </h3>
                 <p>{stat.label}</p>
               </motion.div>
             ))}

@@ -1,17 +1,18 @@
 // src/App.js
 import React, { useState } from "react";
 import "./App.css";
-import { Routes, Route, Link, useLocation } from "react-router-dom"; // Import Router tools
+import { Routes, Route, Link, useLocation } from "react-router-dom"; 
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Globe, Menu, X, Facebook, Twitter, Instagram, Linkedin, Apple, Play } from "lucide-react";
 
 // --- IMPORT PAGES ---
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import About from "./pages/About"; 
+import About from "./pages/About";
+import ComingSoon from "./pages/ComingSoon"; // <--- 1. IMPORT NEW PAGE
 
 // --- IMPORT COMPONENTS ---
-import Chatbot from "./components/Chatbot"; // <--- 1. IMPORT CHATBOT
+import Chatbot from "./components/Chatbot";
 
 // --- ASSET IMPORTS ---
 import logo from "./assets/logo.png"; 
@@ -19,19 +20,17 @@ import logo from "./assets/logo.png";
 function App() {
   const [isProductOpen, setProductOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation(); // Hook to get current route
+  const location = useLocation(); 
 
   const toggleProducts = () => {
     setProductOpen(!isProductOpen);
   };
 
-  // Function to close menu when a link is clicked
   const closeMenu = () => {
     setMobileMenuOpen(false);
     setProductOpen(false);
   };
 
-  // Scroll to top on route change
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
@@ -42,7 +41,6 @@ function App() {
       {/* --- SHARED NAVBAR --- */}
       <nav className="navbar">
         <div className="logo-area">
-          {/* Logo redirects to Home AND closes mobile menu if open */}
           <Link to="/" onClick={closeMenu}>
             <img src={logo} alt="Solo Equations" className="logo-img" />
           </Link>
@@ -59,17 +57,19 @@ function App() {
             <AnimatePresence>
               {isProductOpen && (
                 <motion.div className="dropdown-menu" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 15 }}>
-                  <Link to="/" className="dropdown-item" onClick={() => setProductOpen(false)}>Solo for Residents</Link>
-                  <Link to="/" className="dropdown-item" onClick={() => setProductOpen(false)}>Solo for Managers</Link>
-                  <Link to="/" className="dropdown-item" onClick={() => setProductOpen(false)}>Solo for Security</Link>
-                  <Link to="/" className="dropdown-item" onClick={() => setProductOpen(false)}>Marketplace</Link>
-                  <Link to="/" className="dropdown-item" onClick={() => setProductOpen(false)}>Smart Meters</Link>
+                  {/* UPDATE ALL PRODUCT LINKS TO /coming-soon */}
+                  <Link to="/coming-soon" className="dropdown-item" onClick={() => setProductOpen(false)}>Solo for Residents</Link>
+                  <Link to="/coming-soon" className="dropdown-item" onClick={() => setProductOpen(false)}>Solo for Managers</Link>
+                  <Link to="/coming-soon" className="dropdown-item" onClick={() => setProductOpen(false)}>Solo for Security</Link>
+                  <Link to="/coming-soon" className="dropdown-item" onClick={() => setProductOpen(false)}>Marketplace</Link>
+                  <Link to="/coming-soon" className="dropdown-item" onClick={() => setProductOpen(false)}>Smart Meters</Link>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          <Link to="/" className="nav-link">Blog</Link>
+          {/* UPDATE BLOG LINK TO /coming-soon */}
+          <Link to="/coming-soon" className="nav-link">Blog</Link>
           <Link to="/contact" className="nav-link">Contact Us</Link>
           <Link to="/about" className="nav-link">About Us</Link>
         </div>
@@ -96,7 +96,6 @@ function App() {
               exit={{ height: 0, opacity: 0 }}
             >
               
-              {/* Mobile Products Dropdown */}
               <button 
                 className="mobile-link" 
                 onClick={toggleProducts} 
@@ -114,18 +113,18 @@ function App() {
                     exit={{ height: 0, opacity: 0 }}
                     style={{overflow: 'hidden', display: 'flex', flexDirection: 'column'}}
                   >
-                    <Link to="/" className="mobile-sub-link" onClick={closeMenu}>Solo for Residents</Link>
-                    <Link to="/" className="mobile-sub-link" onClick={closeMenu}>Solo for Managers</Link>
-                    <Link to="/" className="mobile-sub-link" onClick={closeMenu}>Solo for Security</Link>
-                    <Link to="/" className="mobile-sub-link" onClick={closeMenu}>Marketplace</Link>
-                    <Link to="/" className="mobile-sub-link" onClick={closeMenu}>Smart Meters</Link>
+                    {/* UPDATE MOBILE PRODUCT LINKS */}
+                    <Link to="/coming-soon" className="mobile-sub-link" onClick={closeMenu}>Solo for Residents</Link>
+                    <Link to="/coming-soon" className="mobile-sub-link" onClick={closeMenu}>Solo for Managers</Link>
+                    <Link to="/coming-soon" className="mobile-sub-link" onClick={closeMenu}>Solo for Security</Link>
+                    <Link to="/coming-soon" className="mobile-sub-link" onClick={closeMenu}>Marketplace</Link>
+                    <Link to="/coming-soon" className="mobile-sub-link" onClick={closeMenu}>Smart Meters</Link>
                   </motion.div>
                 )}
               </AnimatePresence>
 
-              {/* Other Mobile Links */}
               <Link to="/" className="mobile-link" onClick={closeMenu}>Home</Link>
-              <Link to="/" className="mobile-link" onClick={closeMenu}>Blog</Link>
+              <Link to="/coming-soon" className="mobile-link" onClick={closeMenu}>Blog</Link> {/* UPDATED */}
               <Link to="/about" className="mobile-link" onClick={closeMenu}>About Us</Link>
               <Link to="/contact" className="mobile-link" onClick={closeMenu}>Contact Us</Link>
               
@@ -143,6 +142,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/coming-soon" element={<ComingSoon />} /> {/* <--- 2. ROUTE ADDED */}
         </Routes>
       </main>
 
@@ -190,11 +190,12 @@ function App() {
             </div>
             <div className="footer-col">
               <h4>Products</h4>
-              <Link to="/">Solo for Residents</Link>
-              <Link to="/">Solo for Facility Managers</Link>
-              <Link to="/">Solo for Security</Link>
-              <Link to="/">Solo for Marketplace</Link>
-              <Link to="/">Smart Meters</Link>
+              {/* UPDATE FOOTER PRODUCT LINKS */}
+              <Link to="/coming-soon">Solo for Residents</Link>
+              <Link to="/coming-soon">Solo for Facility Managers</Link>
+              <Link to="/coming-soon">Solo for Security</Link>
+              <Link to="/coming-soon">Solo for Marketplace</Link>
+              <Link to="/coming-soon">Smart Meters</Link>
             </div>
             <div className="footer-col">
               <h4>Follow Us</h4>
@@ -212,8 +213,8 @@ function App() {
         </div>
       </footer>
 
-      {/* --- FLOATING CHATBOT (Visible on ALL pages) --- */}
-      <Chatbot />  {/* <--- 2. COMPONENT ADDED */}
+      {/* --- FLOATING CHATBOT --- */}
+      <Chatbot /> 
 
     </div>
   );
